@@ -1,0 +1,24 @@
+
+api/cart/add
+{
+  "productId":"67e45950ada717b9cae4769e",
+  "title":"iphone-8",
+  "price":"450000",
+  "quantity":3
+}
+
+api/user/register
+{
+    "name":"kushal4",
+    "email":"kush@gmail.com",
+    "password":"kushal1234"
+}
+
+api/user/login
+{
+    "email":"kush@gmail.com",
+    "password":"kushal1234"
+}
+
+header->
+auth->token

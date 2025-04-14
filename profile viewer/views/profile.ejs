@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-container {
+            width: 80%;
+            max-width: 900px;
+            min-height: 400px;
+            display: flex;
+            border: 2px solid black;
+            background-color: #ffffff;
+            padding: 1px;
+        }
+        .profile-left {
+            width: 25%;
+            background-color: #ffcccb;
+            text-align: center;
+            padding: 10px;
+        }
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .profile-info {
+            width: 75%;
+            padding: 10px;
+            background-color: #d4e157;
+        }
+        .dabba {
+            margin-bottom: 10px;
+        }
+        .buttons-container {
+            margin-top: 10px;
+            display: flex;
+            gap: 500px;
+        }
+        button {
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #5fe261;
+            color: white;
+        }
+        .logout-btn {
+            background-color: #fb6f65;
+        }
+        .logout{
+            margin-top:155px;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-container">
+    <div class="profile-left">
+        <img class="profile-img" src="<%= user.photo ? user.photo : 'uploads/admin.png' %>">
+        <h3><%= user.name %></h3>
+        <p><strong>Mobile: </strong><%= user.phone %></p>
+        <form class="logout" action="/logout" method="GET">
+            <button type="submit" class="logout-btn">Logout</button>
+        </form>
+    </div>
+    <div class="profile-info">
+        <h1>Your Profile</h1>
+        <div class="dabba"><strong>University:</strong> <%= user.college %></div>
+        <div class="dabba"><strong>Roll No:</strong> <%= user.rollNo %></div>
+        <div class="dabba"><strong>Year:</strong> <%= user.year %></div>
+        <div class="dabba"><strong>Semester:</strong> <%= user.semester %></div>
+        <div class="dabba"><strong>Email:</strong> <%= user.email %></div>
+        <div class="dabba"><strong>CGPA:</strong> <%= user.cgpa %></div>
+       <marquee behavior="" direction="left"><p>see full marksheet on DMC button!!</p></marquee>
+        <div class="buttons-container">
+            <form action="/marksheet" method="GET">
+                <input type="hidden" name="id" value="<%= user._id %>">
+                <button type="submit">DMC</button>
+            </form>
+          
+        </div>
+    </div>
+</div>
+</body>
+</html>
